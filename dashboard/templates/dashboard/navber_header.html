@@ -1,0 +1,22 @@
+{% load static %}
+{% load contact_count %}
+<div class="nav-header">
+    <a href="{% url 'dashboard'%}" class="brand-logo">
+                    {% for i in request|admin_info %}
+                        {% if i.dashboard_logo %}
+                        <img class="logo-abbr mx-auto d-block shadow" src="{{i.dashboard_logo.url}}" alt="">
+                    {% else %}
+                    <img class="logo-abbr" src="{% static 'public/images/logos/vanture_logo.png'%}" alt="">
+                    {% endif %}
+                    {% endfor %}
+                                <img class="logo-compact" src="public/images/logo-text.png" alt="">
+        <img class="brand-title" src="public/images/logo-text.png" alt="">
+        
+    </a>
+
+    <div class="nav-control">
+        <div class="hamburger">
+            <span class="line"></span><span class="line"></span><span class="line"></span>
+        </div>
+    </div>
+</div>

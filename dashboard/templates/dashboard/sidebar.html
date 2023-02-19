@@ -1,0 +1,262 @@
+{% load static %}
+<div class="deznav">
+    <div class="deznav-scroll">
+        <ul class="metismenu" id="menu">
+            {% if request.user.is_superuser %}
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="fa fa-user-secret"></i>
+                <span class="nav-text">Super User</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'register' %}">Create user</a></li>
+                    <li><a href="{% url 'register_view' %}">User List</a></li>
+                </ul>
+            </li>
+            {% endif %}
+
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="fa fa-users"></i>
+                <span class="nav-text">Admin</span>
+                </a>
+                <ul aria-expanded="false">
+                    
+                    <li><a href="{% url 'admin_profile_add' %}">Add Profile</a></li>
+                    <li><a href="{% url 'admin_profile_view' %}">View Profile</a></li>
+                    
+                </ul>
+            </li>
+
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="fa fa-building"></i>
+                    <span class="nav-text">Property</span>
+                </a>
+                <ul aria-expanded="false">
+
+                    <li><a class="has-arrow" href="form-element.html">Upload Property</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'PropertyPost-add' %}">Add Property</a></li>
+                            <li><a href="{% url 'PropertyPost-list' %}">View Property</a></li>
+                        </ul>
+                    </li> 
+
+                    <li><a class="has-arrow" href="form-element.html">Property Location</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'property_location_add' %}">Add Location</a></li>
+                            <li><a href="{% url 'property_location_view' %}">View Location</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="has-arrow" href="form-element.html">Project type</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'project_type_add' %}">Add Project type</a></li>
+                            <li><a href="{% url 'project_type_view' %}">View Project type</a></li>
+                        </ul>
+                    </li> 
+
+                    <li><a class="has-arrow" href="form-element.html">Property type</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'property_type_add' %}">Add Property type</a></li>
+                            <li><a href="{% url 'property_type_view' %}">View Property type</a></li>
+                        </ul>
+                    </li> 
+
+                    <li><a class="has-arrow" href="form-element.html">Select Division</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'division_add' %}">Add Division</a></li>
+                            <li><a href="{% url 'division_view' %}">View Division</a></li>
+                        </ul>
+                    </li> 
+
+                    <li><a class="has-arrow" href="form-element.html">Select District</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'district_add' %}">Add District</a></li>
+                            <li><a href="{% url 'district_view' %}">View District</a></li>
+                        </ul>
+                    </li> 
+                    <li><a class="has-arrow" href="form-element.html">Select SubDistrict</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'subdistrict_add' %}">Add SubDistrict</a></li>
+                            <li><a href="{% url 'subdistrict_view' %}">View SubDistrict</a></li>
+                        </ul>
+                    </li> 
+                </ul>
+            </li>
+
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="fa fa-picture-o"></i>
+                    <span class="nav-text">Banner</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'banner_video_add' %}">Banner Video Add</a></li>
+                    <li><a href="{% url 'banner_video_view' %}">Banner Video View</a></li>
+                    
+                </ul>
+            </li>
+
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="fa fa-book"></i>
+                    <span class="nav-text">Why choose us</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'why_choose_us_add' %}">Add Why Choose Us</a></li>
+                    <li><a href="{% url 'why_choose_us_view' %}">View Why Choose Us</a></li>
+                    
+                </ul>
+            </li>
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="flaticon-381-controls-3"></i>
+                    <span class="nav-text">Faq</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'faq_add' %}">Add Faq</a></li>
+                    <li><a href="{% url 'faq_view' %}">View Faq</a></li>
+                </ul>
+            </li>
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="fa fa-circle"></i>
+                    <span class="nav-text">Counter</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'counter_add' %}">Add Counter</a></li>
+                    <li><a href="{% url 'counter_view' %}">View Counter</a></li>
+                </ul>
+            </li>
+
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="fa fa-book"></i>
+                    <span class="nav-text">Blog</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'blog_add' %}">Add Blog</a></li>
+                    <li><a href="{% url 'blog_view' %}">View Blog</a></li>
+                </ul>
+            </li>
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="flaticon-381-heart"></i>
+                    <span class="nav-text">Service</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'service_add' %}">Add service</a></li>
+                    <li><a href="{% url 'service_view' %}">View service</a></li>
+                    <li><a href="{% url 'service_type_add' %}">Add service Type</a></li>
+                </ul>
+            </li>
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="fa fa-envira"></i>
+                <span class="nav-text">Gallery</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'gallery_add' %}">Add Image</a></li>
+                    <li><a href="{% url 'gallery_view' %}">View Image</a></li>
+                </ul>
+            </li>
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="fa fa-phone"></i>
+                    <span class="nav-text">Get In Touch</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a class="has-arrow" href="form-element.html">CSR</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'csr_add' %}">Add CSR</a></li>
+                            <li><a href="{% url 'csr_view' %}">View CSR</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="form-element.html">Career</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'career_add' %}">Add Career</a></li>
+                            <li><a href="{% url 'career_view' %}">View Career</a></li>
+                            <li><a href="{% url 'job_application_view' %}">View Job Application</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="form-wizard.html">Our Team</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'team_add' %}">Add Our Team</a></li>
+                            <li><a href="{% url 'team_view' %}">View Our Team</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="form-editor-summernote.html">Notice</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'notice_add' %}">Add Notice</a></li>
+                            <li><a href="{% url 'notice_view' %}">View Notice</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="form-pickers.html">Contact</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'contact_view' %}">View Contact</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </li>
+
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="fa fa-building"></i>
+                    <span class="nav-text">About Area</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a class="has-arrow" href="form-element.html">About Head section</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'about_head_add' %}">Add About Head section</a></li>
+                            <li><a href="{% url 'about_head_view' %}">View About Head section</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="form-wizard.html">About Looking section</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'about_looking_add' %}">Add About Looking section</a></li>
+                            <li><a href="{% url 'about_looking_view' %}">View About Looking section</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="form-editor-summernote.html">About testimonial Sec.</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'about_testimonial_add' %}">Add testimonial Section</a></li>
+                            <li><a href="{% url 'about_testimonial_view' %}">View testimonial Section</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="form-pickers.html">Contact</a>
+                        
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'contact_view' %}">View Contact</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="fa fa-comment"></i>
+                <span class="nav-text">Feedback</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'feedback_view' %}">Feedback view</a>
+                </ul>
+            </li>
+
+            <li>
+                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="flaticon-381-notepad"></i>
+                <span class="nav-text">Booking</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'booking_view' %}">Booking view</a>
+                </ul>
+            </li>
+
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="fa fa-book"></i>
+                    <span class="nav-text">Social Link</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{% url 'social_link_add' %}">Add Social Link</a></li>
+                    <li><a href="{% url 'social_link_view' %}">View Social Link</a></li>
+                    
+                </ul>
+            </li>
+
+            
+        </ul>
+        
+        <div class="copyright">
+            <p><strong>Venture Dashboard</strong> ©2022</p>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Featured properties start -->
+<div class="content-area featured-properties mt-3">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title-3">
+            <p class="section-subtitle">Best Sale Properties</p>
+            <h1>Featured Properties</h1>
+        </div>
+        <div class="row">
+            {% for feature_detail in feature_details %}
+            <div class="col-lg-6 col-md-12 col-sm-12 wow fadeInLeft delay-04s">
+                <div class="row g-0 property fp2">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                        <!-- Property img -->
+                        <div class="property-img">
+                            <div class="property-tag button alt featured">Featured</div>
+                            <div class="property-price">${{feature_detail.price}}</div>
+                            <img src="{{feature_detail.post_pic.url}}" alt="fp-list" class="img-responsive hp-2">
+                            <div class="property-overlay">
+                                <a href="{% url 'feature_details_property' feature_detail.id %}" class="overlay-link">
+                                    <div class="overlay-link">{{feature_detail.post_title}}</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 property-content">
+                        <!-- Info -->
+                        <div class="info">
+                            <!-- title -->
+                            <h1 class="title">
+                                <a href="{% url 'feature_details_property' feature_detail.id %}">{{feature_detail.post_title}}</a>
+                            </h1>
+                            <!-- Property address -->
+                            <h3 class="property-address">
+                                <a href="/?location={{feature_detail.post_location}}">
+                                    <i class="fa fa-map-marker"> {{feature_detail.post_location}}</i>
+                                </a>
+                            </h3>
+                            <!-- Facilities List -->
+                            <ul class="facilities-list fl-2 clearfix">
+                                <li>
+                                    <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
+                                    <span>{{feature_detail.sqr_feet}} sq ft</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-bed"></i>
+                                    <span>{{feature_detail.bedrooms}} Bedrooms</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-holidays"></i>
+                                    <span>{{feature_detail.bathrooms}} Bathrooms</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-vehicle"></i>
+                                    <span>{{feature_detail.garage}} Garage </span>
+                                </li>
+                            </ul>
+                            <!-- Property footer -->
+                        </div>
+                        <!-- Property footer -->
+                        <div class="property-footer">
+                            <span class="left">
+                                <!-- <a href="#"><i class="fa fa-user"></i>{{feature_detail.developer_name}}</a> -->
+                            </span>
+                            <span class="right">
+                                    <i class="fa fa-calendar"></i>{{feature_detail.get_date}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Featured properties end -->
+
+{% endblock content %}

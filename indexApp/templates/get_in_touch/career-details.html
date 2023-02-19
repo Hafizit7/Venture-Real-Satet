@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container pt-5">
+    <div class="messages container mt-5">
+       {% if messages %}
+          {% for message in messages %}
+          <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %} role="alert">{{ message }}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          {% endfor %}
+       {% endif %}
+    </div>
+ </div>
+
+<div class="container" style="margin-top: 130px;"> 
+    <div class="card border-0 col-12 col-md-10 mx-auto">
+        <div class="card-body">
+            <h4>{{ careers.title }}</h4>
+            <p>{{ careers.job_description|safe }}</p>
+            <p>Deadline {{ careers.end_date }}</p>
+        </div>
+    </div>
+    <div class="col-12 col-md-10 mx-auto apply-form  mb-5">
+        <div class="rs-contact pt-120 md-pt-80">
+            <div class="container">
+                <div class="contact-widget">
+                    <div class="sec-title2 mb-40">
+                        <h5 class="">Application Form<hr></h5>
+                    </div>
+                     <div id="form-messages"></div>
+                     <form action="" method="POST" enctype="multipart/form-data">
+                         {% csrf_token %}
+                         <fieldset>
+                             <div class="row">
+                                 <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
+                                     {{ form.full_name }}
+                                 </div> 
+                                 <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
+                                     {{ form.email }}
+                                 </div>   
+                                 <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
+                                     {{ form.phone }}
+                                 </div>   
+                                 <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
+                                     {{ form.expected_salary }}
+                                 </div>
+                                 <div class="col-lg-12 mb-30 col-md-12 col-sm-12">
+                                    <span>
+                                        <label> Upload Your CV*</label>
+                                    {{ form.cv }}
+                                    </span>
+                                </div>                             
+                                 <div class="col-lg-12 mb-30">
+                                     {{ form.message }}
+                                 </div>
+                                 <div class="col-lg-12 mb-30">
+                                    <input type="hidden" value="pending" name="status">
+                                 </div>
+                             </div>
+                             <div class="btn-part">                                            
+                                 <div class="form-group mb-0">
+                                     <input class="readon learn-more submit" type="submit" value="Submit Now">
+                                 </div>
+                             </div> 
+                         </fieldset>
+                     </form> 
+                 </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

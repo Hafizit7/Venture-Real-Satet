@@ -1,0 +1,232 @@
+{% load static %}
+<!-- Footer start -->
+
+<style>
+    .footer-area {
+  position: relative;
+  background-color: #dadada7a;
+}
+
+.footer-area .footer-top {
+  width: 100%;
+  padding: 15px 0;
+}
+
+.footer-area .footer-top .ft_title {
+  font-size: 25px;
+  font-weight: 500;
+  padding: 10px 0;
+}
+
+.footer-area .footer-top .ft_title .bottom-line {
+  height: 4px;
+  width: 30%;
+  background-color: #199388;
+  margin: 5px 0;
+}
+
+.footer-area .footer-top .ft_company-des .company-name {
+  font-size: 22px;
+  line-height: 2rem;
+  font-weight: 500;
+}
+
+.footer-area .footer-top .ft_company-des div {
+  line-height: 2rem;
+}
+
+.footer-area .footer-top .ft_company-des div span {
+  font-weight: 300;
+  font-size: 15px;
+  color: #343434 !important;
+}
+
+.footer-area .footer-top .ft_company-des div span svg {
+  margin-right: 8px;
+  font-size: 17px;
+}
+
+.footer-area .footer-top .useful_links {
+  position: relative;
+}
+
+.footer-area .footer-top .useful_links li {
+  font-size: 17px;
+  line-height: 2rem;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.footer-area .footer-top .useful_links li:hover {
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
+}
+
+.footer-area .footer-top .useful_links li:hover a {
+  color: #4caf50;
+}
+
+.footer-area .footer-top .useful_links li a {
+  color: #2c2c2c;
+  text-decoration: none;
+}
+
+.footer-area .footer-top .email_newsletter form {
+  margin-top: 5px;
+}
+
+.footer-area .footer-top .email_newsletter form .form-control {
+  margin-right: 5px;
+  background-color: transparent;
+  border: 2px solid #4caf50;
+  -webkit-box-shadow: #b8b8b8;
+          box-shadow: #b8b8b8;
+}
+
+.footer-area .footer-top .email_newsletter form .form-control:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.footer-area .footer-top .email_newsletter form .btn-primary {
+  width: 100%;
+  background-color: #4caf50;
+  border: 1px solid #4caf50;
+}
+
+.footer-area .footer-top .email_newsletter form .btn-primary:hover {
+  background-color: #ffffff;
+  color: #4caf50;
+  border: 1px solid #4caf50;
+}
+
+.footer-area .footer-top .email_newsletter .ft_social-link {
+  margin-top: 20px;
+}
+
+.footer-area .footer-top .email_newsletter .ft_social-link span {
+  font-size: 22px;
+  line-height: 2rem;
+}
+
+.footer-area .footer-top .email_newsletter .ft_social-link ul {
+  display: inline;
+  text-align: center;
+}
+
+.footer-area .footer-top .email_newsletter .ft_social-link ul li {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 25px;
+  padding: 0 5px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.footer-area .footer-top .email_newsletter .ft_social-link ul li:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  background-color: transparent;
+  -webkit-box-shadow: 20px 20px 60px #9b9b9b, -20px -20px 60px #ffffff;
+          box-shadow: 20px 20px 60px #9b9b9b, -20px -20px 60px #ffffff;
+  border-radius: 50px;
+}
+
+.footer-area .footer-top .email_newsletter .ft_social-link ul li a {
+  color: #4caf50;
+}
+
+.footer-area .footer-bottom {
+  position: relative;
+  text-align: center;
+  min-height: 25px;
+  width: 100%;
+  background-color: #199388;
+  color: #292828;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.footer-area .footer-bottom a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.footer-area .footer-bottom a:hover {
+  color: #ff9800;
+}
+</style>
+<section class="footer-area">
+    <div class="container">
+        <div class="footer-top">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="ft_title">
+                        <span>About Company</span>
+                        <div class="bottom-line"></div>
+                    </div>
+                    <div class="ft_company-des">
+                        <h1 class="company-name">Venture Group Ltd.</h1>
+                        <div class="cmp_address">
+                            <span><i class="fas fa-map-marker-alt"></i>Address:&nbsp; Bijoy Rakeen City (Level-2) plot-1/2.<br>
+                              Block-D, Section-15, Mirpur, Dhaka-1216
+                            
+                            </span>
+                        </div>
+                        <div class="cmp_phone">
+                            <span><i class="fa fa-phone"></i> Phone:&nbsp; (+880) 1988 662668</span>
+                        </div>
+                        <div class="cmp_email">
+                            <!-- <span><i class="fa fa-envelope"></i> Email:&nbsp;info@venture.com</span> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="ft_title">
+                        <span>Useful Links</span>
+                        <div class="bottom-line"></div>
+                    </div>
+                    <div class="useful_links">
+                        <ul>
+                            <li><a href="{% url 'contactus' %}">Help</a></li>
+                            <li><a href="{% url 'home' %}#faq">FAQ</a></li>
+                            <li><a href="{% url 'contactus' %}">Contact</a></li>
+                            <li><a href="{% url 'about' %}">About Company</a></li>
+                            <li><a href="{% url 'blog' %}">Blogs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="email_newsletter">
+                        <div class="ft_social-link">
+                            <span>Connect With Us</span>
+                            <hr>
+                            <ul>
+                              {% for i in social_link %}   
+                              <li class="custom_icon">
+          
+                                  <a href="{{i.facebook_social_link}}"><i class="fa fa-facebook"></i></a>
+                                  <a href="{{i.twitter_social_link}}"> <i class="fa fa-twitter"></i></a>
+                                  <a href="{{i.linkedin_social_link}}"><i class="fa fa-linkedin"></i></a>
+                                  <a href="{{i.instagram_social_link}}"><i class="fa fa-instagram"></i></a>
+                                  <a href="{{i.youtube_social_link}}"><i class="fa fa-youtube"></i></a>
+                                  
+          
+                              </li>
+                              {% endfor %}
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+ 
+    <div class="footer-bottom">
+        <span>All right reserved by &copy; <a href="##">Venture Group Ltd.</a> | Design & Developed by &copy; <a href="##">Universe Soft Care</a></span>
+    </div>
+</section>
+<!-- Footer end -->

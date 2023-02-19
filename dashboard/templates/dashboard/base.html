@@ -1,0 +1,104 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	{% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>d | Dashboard</title>
+	
+	<meta name="description" content="Some description for the page"/>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'public/images/favicon.png' %}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<!-- <link href="{% static 'public/vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet" type="text/css"/> -->
+	<link href="{% static 'public/vendor/jqvmap/css/jqvmap.min.css' %}" rel="stylesheet" type="text/css"/>
+	<link href="{% static 'public/vendor/chartist/css/chartist.min.css' %}" rel="stylesheet" type="text/css"/>
+	<link href="../../../cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" type="text/css"/>
+	<link href="{% static 'public/vendor/owl-carousel/owl.carousel.css' %}" rel="stylesheet" type="text/css"/>			
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+	<link href="{% static 'public/css/style.css' %}" rel="stylesheet" type="text/css"/>
+<body>
+	<div id="main-wrapper">
+		
+	{% include 'dashboard/main_header.html' %}
+	{% include 'dashboard/navber_header.html' %}
+	{% include 'dashboard/sidebar.html' %}
+	
+    {% block content %}
+
+
+    {% endblock content %}
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="{% static 'public/vendor/global/global.min.js'%}" type="text/javascript"></script>
+	<!-- <script src="{% static 'public/vendor/bootstrap-select/dist/js/bootstrap-select.min.js'%}" type="text/javascript"></script> -->
+	<script src="{% static 'public/vendor/chart.js/Chart.bundle.min.js'%}" type="text/javascript"></script>
+	<script src="{% static 'public/vendor/apexchart/apexchart.js'%}" type="text/javascript"></script>
+	<script src="{% static 'public/vendor/owl-carousel/owl.carousel.js'%}" type="text/javascript"></script>
+	<script src="{% static 'public/vendor/jqvmap/js/jquery.vmap.min.js'%}" type="text/javascript"></script>
+	<script src="{% static 'public/vendor/jqvmap/js/jquery.vmap.world.js'%}" type="text/javascript"></script>
+	<script src="{% static 'public/vendor/peity/jquery.peity.min.js'%}" type="text/javascript"></script>
+	<script src="{% static 'public/js/dashboard/dashboard-1.js'%}" type="text/javascript"></script>
+	<script src="{% static 'public/js/custom.min.js'%}" type="text/javascript"></script>
+	<script src="{% static 'public/js/deznav-init.js'%}" type="text/javascript"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+	<script>
+		$(function () {
+		$(".feedback-content").slice(0, 1).show();
+		$("body").on('click touchstart', '.load-more', function (e) {
+			e.preventDefault();
+			$(".feedback-content:hidden").slice(0, 2).slideDown();
+			if ($(".feedback-content:hidden").length == 0) {
+				$(".load-more").text("No Content").addClass("noContent");
+			}
+			$('html,body').animate({
+				scrollTop: $(this).offset().top
+			}, 1000);
+		});
+	});
+		$(function () {
+		$(".job-content").slice(0, 1).show();
+		$("body").on('click touchstart', '.load-more-job', function (e) {
+			e.preventDefault();
+			$(".job-content:hidden").slice(0, 2).slideDown();
+			if ($(".job-content:hidden").length == 0) {
+				$(".load-more-job").text("No Content").addClass("noContent");
+			}
+			$('html,body').animate({
+				scrollTop: $(this).offset().top
+			}, 1000);
+		});
+	});
+		$(function () {
+		$(".contact-content").slice(0, 1).show();
+		$("body").on('click touchstart', '.load-more-contact', function (e) {
+			e.preventDefault();
+			$(".contact-content:hidden").slice(0, 2).slideDown();
+			if ($(".contact-content:hidden").length == 0) {
+				$(".load-more-contact").text("No Content").addClass("noContent");
+			}
+			$('html,body').animate({
+				scrollTop: $(this).offset().top
+			}, 1000);
+		});
+	});
+	</script>
+	<script id="DZScript" src="../../../dzassets.s3.amazonaws.com/w3-global8bb6.js?btn_dir=right"></script>
+
+
+	<!--		<script src="https://omah.dexignzone.com/laravel/demo/js/custom.min.js" type="text/javascript"></script>
+			<script src="https://omah.dexignzone.com/laravel/demo/js/deznav-init.js" type="text/javascript"></script> -->
+</body>
+
+</html>
+				
+
+
+</head>
+
+<body>

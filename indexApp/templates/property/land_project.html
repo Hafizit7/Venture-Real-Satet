@@ -1,0 +1,362 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- property section start -->
+<style>
+    .property .property-content .facilities-list li {
+        width: 100%;
+        float: none;
+        font-size: 15px;
+        line-height: 29px;
+    }
+
+    .property .property-content .info {
+        padding: 30px 25px 25px;
+        text-align: center;
+    }
+
+    .overlay-link:hover {
+        background: none;
+        border: none;
+    }
+
+    .page-item.active .page-link {
+        z-index: 3;
+        color: #fff;
+        background-color: #199388;
+        border-color: #0d6efd;
+    }
+
+    .property-content p {
+        margin: 10px 0 20px;
+        padding: 5px;
+        border-radius: 5px;
+        background: #199388;
+        display: inline-block;
+        width: 60px;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .overlay-link:hover {
+        background: none;
+        border: none;
+    }
+
+    .page-item.active .page-link {
+        z-index: 3;
+        color: #fff;
+        background-color: #199388;
+        border-color: #0d6efd;
+    }
+
+    .property-footer span {
+        padding: 20px;
+    }
+
+    .property-footer p:hover {
+        color: green;
+        background-color: white;
+
+    }
+
+    .pagination>li>a:hover {
+        background: #4e5739;
+    }
+
+    .pagination>li>a:hover {
+        background: #4e5739;
+    }
+
+    .projects .search-poject {
+        width: 100;
+        height: auto;
+        margin: 0 auto;
+        padding-bottom: 20px;
+        background: #ffffff;
+    }
+
+    .projects .search-poject .card-body {
+        padding: 0 35px;
+        padding-bottom: 10px;
+        background: url(../images/about/sale_house.svg) no-repeat center right 10%;
+        background-size: 20%;
+    }
+
+    .projects .search-poject .card-body button {
+        margin-left: -15px;
+    }
+
+    .projects .search-poject .card-header {
+        cursor: pointer;
+        padding: 3px 20px;
+    }
+
+    .projects .search-poject .row {
+        line-height: 3rem;
+        font-size: 15px;
+    }
+
+    .projects .search-poject .custom-input {
+        position: relative;
+        margin-right: 10px;
+    }
+
+    .projects .search-poject .area-select {
+        position: relative;
+        width: 70%;
+        margin: 0 20px;
+    }
+
+    .projects .search-poject .area-select .custom-select {
+        font-size: 15px;
+        margin: 0 20px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    input.form-check-input.project_phase,
+    .project_type {
+        /* padding-top: 26px; */
+        margin-top: 15px;
+        margin-right: 5px;
+    }
+
+    .card {
+        margin-top: 75px;
+    }
+
+    .float-right {
+        float: right;
+    }
+</style>
+
+<!-- Sub banner start -->
+<!-- <div class="sub-banner">
+    <div class="overlay">
+        <div class="container">
+            <div class="breadcrumb-area">
+                <h1>Land</h1>
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Land Properties</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- Sub Banner end -->
+<!-- Search area start -->
+    <div class="projects mt-5">
+    <div class="container">
+        <div class="search-poject">
+            <div class="accordion">
+                <div class="card">
+                    <div class="card-header" id="filter_heading">
+                        <div class="text-left" data-toggle="collapse" data-target="#filter_form" aria-expanded="true"
+                            aria-controls="filter_form">
+                            Filter Projects <span class="float-right"><i class="fa fa-filter"></i></span>
+                        </div>
+                    </div>
+                    <div id="filter_form" class="collapse show" aria-labelledby="filter_heading">
+                        <div class="card-body">
+                            <form action="" method="post" id="areaForm">
+
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <span class="title">Project Type</span>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="d-flex">
+                                            {% for project in projecttype %}
+                                            <div class="form-check-inline projectType">
+                                                <label class="form-check-label" for="{{ project.id }}">
+                                                    <input type="checkbox" data-filter="project_type" class="form-check-input project_type filter-checkbox" id="{{ project.id }}" value="{{ project.id }}">{{ project.name }}</label>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <span class="title">Properties Type</span>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="d-flex">
+                                            <div class="d-flex">
+                                                {% for property in propertytype %}
+                                                <div class="form-check-inline">
+                                                    <label class="form-check-label" for="{{ property.id }}">
+                                                        <input type="checkbox" data-filter="property_type" class="form-check-input project_type filter-checkbox"
+                                                            value="{{ property.id }}" id="{{ property.id }}">{{ property.name }}</label>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <span class="title">Project Area</span>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-3 col-4">
+                                                {{ form.division }}
+                                            </div>
+                                            <div class="col-md-3 col-4">
+                                                {{ form.district }}
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 col-4">
+                                                {{ form.sub_district }}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Search area end -->
+
+<!-- property section end -->
+
+<div class="properties-section-body content-area mt-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <!-- Option bar Start -->
+                <div class="option-bar">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-5 col-sm-5">
+                            <h4>
+                                <span class="heading-icon">
+                                    <i class="fa fa-th-large"></i>
+                                </span>
+                                <span class="title">Land Properties</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Option bar end -->
+                <div class="clearfix"></div>
+
+                <!-- Property grid start -->
+                <div class="row" id="filteredProject">
+                    {% for feature_detail in feature_details %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 wow fadeInUp delay-03s d-flex align-items-stretch">
+                        <!-- Property start -->
+                        <a href="{% url 'land_details_property' feature_detail.id %}">
+                            <div class="property fp2">
+                                <!-- Property img -->
+                                <div class="property-img">
+                                    <img src="{{feature_detail.post_pic.url}}" width="400px" height="250px" alt="fp">
+
+                                    <div class="property-overlay">
+
+                                        <div class="overlay-link">{{feature_detail.post_title}}</div>
+
+                                    </div>
+
+                                </div>
+                        </a>
+                        <!-- Property content -->
+                        <div class="property-content">
+                            <!-- info -->
+                            <div class="info">
+                                <!-- title -->
+                                <h1 class="title">
+                                    <a
+                                        href="{% url 'land_details_property' feature_detail.id %}">{{feature_detail.post_title}}</a>
+                                </h1>
+                                <!-- Property address -->
+                                <h3 class="property-address">
+                                    <a href="{% url 'land_details_property' feature_detail.id %}">
+                                        <i class="fa fa-map-marker"></i>{{feature_detail.post_location}}
+                                    </a>
+                                </h3>
+                                <!-- Facilities List -->
+                            </div>
+                            <!-- Property footer -->
+                            <div class="property-footer">
+                                <span class="left">
+                                    <a href="">
+                                        <p>Call</p>
+                                    </a>
+                                </span>
+                                <span class="right">
+                                    <a href="{% url 'land_details_property' feature_detail.id %}">
+                                        <p>Details</p>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Property end -->
+                </div>
+                {% endfor %}
+            </div>
+            <!-- Property grid end -->
+
+            <!-- Pagination box start -->
+            <div class="pagination-box text-center">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        {% if feature_details.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ feature_details.previous_page_number }}">Prev</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                            <a class="disabled">Prev</a>
+                        </li>
+                        {% endif %}
+                        {% for i in paginator.page_range %}
+                        <li class="page-item {% if i == page_number %} active {% endif %}"><a class="page-link"
+                                href="?page={{i}}">{{i}}</a></li>
+                        {% endfor %}
+                        {% if feature_details.has_next%}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ feature_details.next_page_number }}">Next</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+            <!-- Pagination box end -->
+        </div>
+    </div>
+</div>
+</div>
+<!-- property section end -->
+
+<!-- Intro section start -->
+<div class="intro-section">
+    <div class="intro-section-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-7 col-sm-12">
+                    <h3>Looking To Sell Or Rent Your Property?</h3>
+                </div>
+                <div class="col-lg-3 col-md-5 col-sm-12">
+                    <a class="btn-2 btn-white" href="{% url 'contactus' %}">
+                        <span>Get in Touch</span> <i class="arrow"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Intro section end -->
+{% endblock content %}
+
+{% block javascript %}
+  <script type="text/javascript" src="{% static 'indexApp/js/project_filter.js' %}"></script>
+{% endblock %}
